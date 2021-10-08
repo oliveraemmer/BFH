@@ -1,5 +1,5 @@
 package sandbox;
-
+//test
 public class fib {
 	public static void main(String[] args) {
 		
@@ -10,7 +10,7 @@ public class fib {
 		// Max. 92 (long = 19 Digits)
 		int fib = 92;
 		
-		System.out.println("Fibonaccinummer " + fib + " = " + fib_calc(base, fib)[0][1]);
+		System.out.println("Fibonaccinummerr " + fib + " = " + fib_calc(base, fib)[0][1]);
 
 		long endTime = System.nanoTime();
 		long total = endTime - startTime;
