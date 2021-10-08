@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0bcc18d-8aef-424f-bbb1-955e43af5393" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/.gitignore" beforeDir="false" />
+    <list default="true" id="c0bcc18d-8aef-424f-bbb1-955e43af5393" name="Default Changelist" comment="test">
       <change beforePath="$PROJECT_DIR$/src/sandbox/fib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sandbox/fib.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sandbox/fib_phi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sandbox/fib_phi.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +62,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633702620414</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test">
+      <created>1633703162204</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633703162204</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
