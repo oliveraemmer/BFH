@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+[class*="col-"] {
+	width: 100%;
+}
+
+.col-2 img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media only screen and (min-width: 800px) {
+  /* For tablets: */
+  [class*="col-"] {float: left;}
+  .col-1 {width: 60%;}
+  .col-2 {width: 40%;}
+}
+

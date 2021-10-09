@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0bcc18d-8aef-424f-bbb1-955e43af5393" name="Default Changelist" comment="test">
+    <list default="true" id="3eae5a99-acd7-48b0-9b77-3d0cc8988801" name="Default Changelist" comment="http">
       <change beforePath="$PROJECT_DIR$/../git_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../git_test/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-server" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +15,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1zE8TqEVeDVRMoVA8Io9JKTjC18" />
+  <component name="ProjectId" id="1zEBxV3j73h7t9Yhke9gwECiRrn" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -26,19 +28,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sandbox" />
   </component>
   <component name="RunManager">
-    <configuration name="fib" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="sandbox.fib" />
-      <module name="sandbox" />
+    <configuration name="HttpServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.HttpServer" />
+      <module name="http-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sandbox.*" />
-          <option name="ENABLED" value="false" />
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <method v="2">
@@ -47,41 +46,34 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.fib" />
+        <item itemvalue="Application.HttpServer" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c0bcc18d-8aef-424f-bbb1-955e43af5393" name="Default Changelist" comment="" />
-      <created>1633701903775</created>
+      <changelist id="3eae5a99-acd7-48b0-9b77-3d0cc8988801" name="Default Changelist" comment="" />
+      <created>1633703617802</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1633701903775</updated>
+      <updated>1633703617802</updated>
     </task>
-    <task id="LOCAL-00001" summary="test">
-      <created>1633702620414</created>
+    <task id="LOCAL-00001" summary="http">
+      <created>1633761398444</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1633702620414</updated>
+      <updated>1633761398444</updated>
     </task>
-    <task id="LOCAL-00002" summary="test">
-      <created>1633703162204</created>
+    <task id="LOCAL-00002" summary="http">
+      <created>1633761424490</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1633703162204</updated>
+      <updated>1633761424490</updated>
     </task>
-    <task id="LOCAL-00003" summary="test">
-      <created>1633703196195</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1633703196195</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,7 +90,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="http" />
+    <option name="LAST_COMMIT_MESSAGE" value="http" />
   </component>
 </project>
