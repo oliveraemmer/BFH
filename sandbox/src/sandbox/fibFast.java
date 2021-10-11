@@ -14,7 +14,7 @@ public class fibFast {
         // Max. 92 (long = 19 Digits)
         int fib;
         int fibPrint;
-        fib = fibPrint = 10000;
+        fib = fibPrint = 91;
 
         // Start Timer
         long startTime = System.nanoTime();
