@@ -8,7 +8,7 @@ public class fib {
 		long base[][] = {{0,1},{1,1}};
 		
 		// Max. 92 (long = 19 Digits)
-		int fib = 92;
+		int fib = 92; 
 		
 		System.out.println("Fibonaccinummer " + fib + " = " + fib_calc(base, fib)[0][1]);
 
