@@ -3,10 +3,21 @@ package sandbox;
 public class power {
 
 	public static void main(String[] args) {
-		System.out.println(power_calc(4, 2));
+		// Start Timer
+		long startTime = System.nanoTime();
+
+		// Calculate
+		long res = power_calc(4, 100);
+
+		// End Timer and Print
+		long endTime = System.nanoTime();
+		long total = endTime - startTime;
+		System.out.println("Time: " + total + " ns");
+
+		System.out.println(res);
 	}
 	
-	public static int power_calc(int base, int power) {
+	public static long power_calc(long base, long power) {
 		if(power == 0) {
 			return 1;
 		}

@@ -1,24 +1,32 @@
 package sandbox;
 
-public class fib {
-	public static void main(String[] args) {
-		
-		long startTime = System.nanoTime();
-		
-		long base[][] = {{0,1},{1,1}};
-		
-		// Max. 92 (long = 19 Digits)
-		int fib = 92; 
-		
-		System.out.println("Fibonaccinummer " + fib + " = " + fib_calc(base, fib)[0][1]);
+import java.math.BigInteger;
 
+public class fib {
+
+	public static void main(String[] args) {
+
+		// Declare Variables
+		// Start Matrix
+		long base[][] = {{0,1},{1,1}};
+		// Max. 92 (long = 19 Digits)
+		int fib = 92;
+
+		// Start Timer
+		long startTime = System.nanoTime();
+
+		// Calculate Fibonacci
+		long res = fib_calc(base, fib)[0][1];
+
+		// End Timer and Print
 		long endTime = System.nanoTime();
 		long total = endTime - startTime;
-		
 		System.out.println("Time: " + total + " ns");
+
+		// Print result
+		System.out.println("Fibonaccinummer " + fib + " = " + res);
 		
 	}
-	
 	public static long[][] fib_calc(long[][] base, int power) {
 		if (power < 2) {
 			return base;
@@ -29,7 +37,7 @@ public class fib {
 			return matrix_calc(base, fib_calc(base, power-1));
 		}
 	}
-	
+
 	public static long[][] matrix_calc(long a[][], long b[][]) {
 		long res[][] = new long[2][2];
 		for(int i=0;i<2;i++) {
