@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0d3f5f4-fc11-4d2a-91f3-dcdb03818ba6" name="Default Changelist" comment="testClass2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sandbox/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sandbox/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sandbox/src/sandbox/fib.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sandbox/src/sandbox/fib.java" afterDir="false" />
-    </list>
+    <list default="true" id="c0d3f5f4-fc11-4d2a-91f3-dcdb03818ba6" name="Default Changelist" comment="testClass2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,7 +53,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633761294688</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary=" asdf">
+      <created>1633951336591</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633951336591</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -71,10 +73,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="testClass" />
     <MESSAGE value="testClass2" />
-    <option name="LAST_COMMIT_MESSAGE" value="testClass2" />
+    <MESSAGE value=" asdf" />
+    <option name="LAST_COMMIT_MESSAGE" value=" asdf" />
   </component>
 </project>
