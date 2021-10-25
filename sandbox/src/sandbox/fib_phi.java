@@ -36,7 +36,7 @@ public class fib_phi {
 		long startTime2 = System.nanoTime();
 
 		// Calculate Fibonacci with Phi
-		double fib2 = 92;
+		double fib2 = 1474;
 		double Phi = Math.pow(((1 + Math.sqrt(5)) / 2), fib2);
 		double phi = Math.pow(((1 - Math.sqrt(5)) / 2), fib2);
 		double res2 = (Phi - phi)/Math.sqrt(5);

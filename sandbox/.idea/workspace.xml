@@ -2,45 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0bcc18d-8aef-424f-bbb1-955e43af5393" name="Default Changelist" comment="fibBigInteger">
-      <change afterPath="$PROJECT_DIR$/../servlet-examples.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/artifacts/servlets_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/artifacts/servlets_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/libraries/Maven__com_sun_activation_jakarta_activation_2_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/libraries/Maven__jakarta_el_jakarta_el_api_4_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/libraries/Maven__jakarta_servlet_jakarta_servlet_api_5_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/libraries/Maven__jakarta_servlet_jsp_jstl_jakarta_servlet_jsp_jstl_api_2_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/libraries/Maven__org_glassfish_web_jakarta_servlet_jsp_jstl_2_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/servlet-examples.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/servlets.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/java/org/example/ChatController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/java/org/example/ChatMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/java/org/example/CounterServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/java/org/example/EchoServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/java/org/example/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/java/org/example/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/java/org/example/HelloView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/java/org/example/LoggingFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/java/org/example/TimeServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/webapp/chat.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/webapp/hello-mvc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/webapp/hello.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/webapp/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../servlet-examples/servlet-examples/src/main/webapp/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../git_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../git_test/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sandbox/fibonacciExercise.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/artifacts/todo_web_app_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/artifacts/todo_web_app_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__com_sun_activation_jakarta_activation_2_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__jakarta_el_jakarta_el_api_4_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__jakarta_servlet_jakarta_servlet_api_5_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__jakarta_servlet_jsp_jstl_jakarta_servlet_jsp_jstl_api_2_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_3_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__org_glassfish_web_jakarta_servlet_jsp_jstl_2_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../http-server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2021_16_58_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_11_10_2021_16_58__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bin/sandbox/fib_phi.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sandbox/fib_phi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/sandbox/power.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sandbox/power.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sandbox.iml" beforeDir="false" afterPath="$PROJECT_DIR$/sandbox.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sandbox/fibBigInteger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sandbox/fibBigInteger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sandbox/fib_phi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sandbox/fib_phi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sandbox/power.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sandbox/power.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/java/org/todo/model/todoListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/java/org/todo/model/todoListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/java/org/todo/model/todoListServlet2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/java/org/todo/model/todoListServlet2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/classes/org/todo/model/todoListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/classes/org/todo/model/todoListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/classes/org/todo/model/todoListServlet2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/classes/org/todo/model/todoListServlet2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/todo-web-app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/todo-web-app/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,40 +75,12 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../servlet-examples" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="inlay.hints.JAVA" />
   </component>
-  <component name="RunManager" selected="Application.fib_phi">
-    <configuration name="fib" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/.jdks/openjdk-17" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="MAIN_CLASS_NAME" value="sandbox.fib" />
-      <module name="sandbox" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sandbox.*" />
-          <option name="ENABLED" value="false" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.fibBigInteger">
     <configuration name="fibBigInteger" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="sandbox.fibBigInteger" />
-      <module name="sandbox" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="sandbox.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="fibFast" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sandbox.fibFast" />
       <module name="sandbox" />
       <extension name="coverage">
         <pattern>
@@ -150,13 +118,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="fibonacciExercise" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sandbox.fibonacciExercise" />
+      <module name="sandbox" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sandbox.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="power" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sandbox.power" />
+      <module name="sandbox" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sandbox.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.fib_phi" />
         <item itemvalue="Application.fibBigInteger" />
+        <item itemvalue="Application.fibonacciExercise" />
+        <item itemvalue="Application.power" />
+        <item itemvalue="Application.fib_phi" />
         <item itemvalue="Application.fib_slow" />
-        <item itemvalue="Application.fibFast" />
-        <item itemvalue="Application.fib" />
       </list>
     </recent_temporary>
   </component>
@@ -168,7 +162,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1633701903775</updated>
-      <workItem from="1634295228443" duration="656000" />
+      <workItem from="1634295228443" duration="820000" />
+      <workItem from="1634484583188" duration="4340000" />
+      <workItem from="1634584818257" duration="2872000" />
+      <workItem from="1634649065604" duration="1809000" />
+      <workItem from="1634890946328" duration="623000" />
+      <workItem from="1634905896780" duration="3000" />
+      <workItem from="1635171259734" duration="2859000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1633702620414</created>

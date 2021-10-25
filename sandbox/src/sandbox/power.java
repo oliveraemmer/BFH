@@ -7,7 +7,7 @@ public class power {
 		long startTime = System.nanoTime();
 
 		// Calculate
-		long res = power_calc(4, 100);
+		long res = power_calc(4, 10);
 
 		// End Timer and Print
 		long endTime = System.nanoTime();

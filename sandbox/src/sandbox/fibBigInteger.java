@@ -25,7 +25,6 @@ public class fibBigInteger {
             // Check if even
             if((fib & 1) != 0){
                 result = matrix_calc(result, base);
-                fib -= 1;
             }
             // Divide by 2
             fib >>= 1;
