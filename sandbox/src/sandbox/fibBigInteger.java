@@ -1,5 +1,3 @@
-package sandbox;
-
 import java.math.BigInteger;
 
 public class fibBigInteger {
@@ -11,7 +9,6 @@ public class fibBigInteger {
         BigInteger base[][] = {{new BigInteger("0"),new BigInteger("1")},{new BigInteger("1"),new BigInteger("1")}};
         BigInteger result[][] = {{new BigInteger("0"),new BigInteger("1")},{new BigInteger("1"),new BigInteger("1")}};
 
-        // Max. 92 (long = 19 Digits)
         int fib;
         int fibPrint;
         fib = fibPrint = 1000000;
