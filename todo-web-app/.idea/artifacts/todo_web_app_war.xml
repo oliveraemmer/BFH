@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="todo-web-app:war">
+    <output-path>$PROJECT_DIR$/todo-web-app/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>todo-web-app</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="todo-web-app.war">
+      <element id="artifact" artifact-name="todo-web-app:war exploded" />
+    </root>
+  </artifact>
+</component>

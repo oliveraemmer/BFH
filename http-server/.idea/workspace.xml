@@ -5,11 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3eae5a99-acd7-48b0-9b77-3d0cc8988801" name="Default Changelist" comment="http">
-      <change beforePath="$PROJECT_DIR$/../git_test/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../git_test/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/artifacts/todo_web_app_war.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/artifacts/todo_web_app_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__com_sun_activation_jakarta_activation_2_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__jakarta_el_jakarta_el_api_4_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__jakarta_servlet_jakarta_servlet_api_5_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__jakarta_servlet_jsp_jstl_jakarta_servlet_jsp_jstl_api_2_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_3_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/libraries/Maven__org_glassfish_web_jakarta_servlet_jsp_jstl_2_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/java/org/todo/model/userAdminLogin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/java/org/todo/model/userAdminRegister.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/webapp/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/todo-web-app/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../sandbox/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../sandbox/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sandbox/bin/sandbox/fib_phi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../sandbox/bin/sandbox/fib_phi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../sandbox/src/sandbox/fib_phi.java" beforeDir="false" afterPath="$PROJECT_DIR$/../sandbox/src/sandbox/fib_phi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sandbox/bin/sandbox/fibBigInteger.class" beforeDir="false" afterPath="$PROJECT_DIR$/../sandbox/bin/sandbox/fibBigInteger.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/java/org/todo/model/todoListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/java/org/todo/model/todoListServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/java/org/todo/model/todoListServlet2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/java/org/todo/model/todoListServlet2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/classes/org/todo/model/todoListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/classes/org/todo/model/todoListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/classes/org/todo/model/todoListServlet2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/classes/org/todo/model/todoListServlet2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/todo-web-app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../todo-web-app/todo-web-app/target/todo-web-app/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

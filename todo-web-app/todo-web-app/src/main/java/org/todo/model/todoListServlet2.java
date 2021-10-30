@@ -44,10 +44,9 @@ public class todoListServlet2 extends HttpServlet{
             out.println("       <input type=\"text\" name=\"category\" required><br>");
             out.println("       <label>Due Date: </label>");
             out.println("       <input type=\"date\" name=\"dueDate\" required><br>");
-            for (int i=todoList.getTodos().size(); i > 0; i--){
-                out.println("        <p>todoList.get(i).title<br>" +
-                        "            todoList.get(i).category<br>" +
-                        "            todoList.get(i).dueDate5</p>");
+            out.println("       <input type=\"submit\" value=\"entry\">");
+            for (Todo todo : todoList.getTodos()){
+                out.println("        <p>" + todo.getTitle() + "<br>" + todo.getCategory() + "<br>" + todo.getDueDate() + "</p>");
             }
             out.println("    </form>");
             out.println("</body>");
@@ -67,7 +66,6 @@ public class todoListServlet2 extends HttpServlet{
 
         todoList.addTodo(todo);
 
-        request.setAttribute("todoList", todoList.getTodos());
         doGet(request, response);
     }
 

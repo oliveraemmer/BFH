@@ -9,6 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.todo.model.todo.Todo;
 import org.todo.model.todo.TodoList;
+import org.todo.model.user.UserAdmin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,31 +19,26 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-@WebServlet("/todoServ")
+@WebServlet(urlPatterns = {"/login"})
 
-public class todoListServlet extends HttpServlet{
-    private static final TodoList todoList = new TodoList();
+public class userAdminLogin extends HttpServlet{
+
+    UserAdmin userAdmin = UserAdmin.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("todoList", todoList.getTodos());
-        request.getRequestDispatcher("/todo.jsp").forward(request, response);
+        request.getRequestDispatcher("/login.jsp").forward(request, response);
     }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String title = request.getParameter("title");
-        String category = request.getParameter("category");
-        String dueDate = request.getParameter("dueDate");
-        LocalDate localDate = LocalDate.parse(dueDate);
+        String registerButton = request.getParameter("register");
+        if(registerButton != null){
+            request.setAttribute("userAdmin", userAdmin);
+            request.getRequestDispatcher("/register").forward(request, response);
+        }
 
-        Todo todo = new Todo(title, category, localDate);
-
-        todoList.addTodo(todo);
-
-        request.setAttribute("todoList", todoList.getTodos());
-        request.getRequestDispatcher("/todo.jsp").forward(request, response);
     }
 
 }
