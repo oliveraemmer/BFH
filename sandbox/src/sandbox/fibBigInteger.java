@@ -1,5 +1,3 @@
-package sandbox;
-
 import java.math.BigInteger;
 
 public class fibBigInteger {

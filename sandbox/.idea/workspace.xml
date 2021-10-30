@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0bcc18d-8aef-424f-bbb1-955e43af5393" name="Default Changelist" comment="fibBigInteger">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sandbox/fastPower.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sandbox/fastPower.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sandbox/fib.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sandbox/fib.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sandbox/fibBigInteger.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sandbox/fibBigInteger.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sandbox/fibFast.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sandbox/fibFast.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sandbox/fib_phi.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sandbox/fib_phi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sandbox/fib_slow.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sandbox/fib_slow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/sandbox/power.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/sandbox/power.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sandbox/fibBigInteger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sandbox/fibBigInteger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -157,7 +148,8 @@
       <workItem from="1634905896780" duration="3000" />
       <workItem from="1635171259734" duration="2859000" />
       <workItem from="1635585587993" duration="172000" />
-      <workItem from="1635585774427" duration="181000" />
+      <workItem from="1635585774427" duration="228000" />
+      <workItem from="1635591632269" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1633702620414</created>
@@ -194,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633983962663</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fibBigInteger">
+      <created>1635585972857</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1635585972857</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
