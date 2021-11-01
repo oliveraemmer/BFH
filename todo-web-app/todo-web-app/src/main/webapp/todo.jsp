@@ -19,7 +19,11 @@
         <input type="text" name="category" required><br>
         <label>Due Date: </label>
         <input type="date" name="dueDate" required><br>
-        <input type="submit" value="entry">
+        <input type="submit" name="entry" value="entry">
+
+    </form>
+    <form action="todoServ" method="post">
+        <input type="submit" name="logout" value="logout">
     </form>
     <c:forEach items="${todoList}" var="todoList">
         <p>${todoList.title}<br>${todoList.category}<br>${todoList.dueDate}</p>

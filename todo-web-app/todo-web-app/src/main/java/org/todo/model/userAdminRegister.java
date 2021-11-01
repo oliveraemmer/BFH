@@ -28,14 +28,21 @@ public class userAdminRegister extends HttpServlet{
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
+        boolean errorRegister = false;
         String user = request.getParameter("user");
         String password = request.getParameter("password");
-        UserAdmin userAdmin;
-        userAdmin = (UserAdmin) request.getAttribute("userAdmin");
-        try{userAdmin.registerUser(user, password);}
+        UserAdmin userAdmin = (UserAdmin) request.getAttribute("userAdmin");
+        // Try to register User
+        try{User newUser = userAdmin.registerUser(user, password);}
+        // Return to login.jsp if it didn't work
         catch (UserAlreadyExistsException e) {
             e.printStackTrace();
+            errorRegister = true;
+            request.setAttribute("errorRegister", errorRegister);
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
+        String registeredMessage = "User " + user + " registered\n";
+        request.setAttribute("registeredMessage", registeredMessage);
 
         request.getRequestDispatcher("/login.jsp").forward(request, response);
     }

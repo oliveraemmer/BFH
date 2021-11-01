@@ -19,6 +19,13 @@
         <input type="password" name="password" required><br>
         <input type="submit" name="login" value="Login">
         <input type="submit" name="register" value="Register">
+        <c:if test = "${errorRegister}">
+            <p>User already registered</p>
+        </c:if>
+        <c:if test = "${errorLogin}">
+            <p>Login failed</p>
+        </c:if>
+        <p>${registeredMessage}</p>
     </form>
 </body>
 </html>
