@@ -30,16 +30,14 @@ public class PingPongMain {
 	public static void main(String[] args) throws InterruptedException {
 
 		final ActorSystem<PingPongRoot.InitMessage> system = ActorSystem.create(PingPongRoot.create(), "system");
-		system.tell(new PingPongRoot.createPingPong("Test"));
+		system.tell(new PingPongRoot.createPingPong());
 
-		/*
 		try {
 			System.out.println(">>> Press ENTER to exit <<<");
 			System.in.read();
 		} catch (IOException ignored) {
 		} finally {
-			pingpong.terminate();
+			system.terminate();
 		}
-		*/
 	}
 }

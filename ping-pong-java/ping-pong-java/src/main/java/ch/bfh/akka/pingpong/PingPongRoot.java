@@ -3,6 +3,7 @@
  */
 package ch.bfh.akka.pingpong;
 
+import akka.actor.typed.ActorRef;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.javadsl.AbstractBehavior;
 import akka.actor.typed.javadsl.ActorContext;
@@ -20,29 +21,32 @@ public class PingPongRoot extends AbstractBehavior<PingPongRoot.InitMessage> {
     interface InitMessage {}
 
     public static class createPingPong implements InitMessage{
-        public final String name;
-
-        public createPingPong(String name) {
-            this.name = name;
-        }
+        public createPingPong() {}
     }
 
     public static Behavior<InitMessage> create() {
         return Behaviors.setup(PingPongRoot::new);
     }
 
+    private final ActorRef<Ping.Message> ping;
+    private final ActorRef<Pong.Message> pong;
+
     public PingPongRoot(ActorContext<InitMessage> context) {
         super(context);
-        System.out.println("Hello World");
+        ping = context.spawn(Ping.create(), "ping");
+        pong = context.spawn(Pong.create(), "pong");
     }
 
     @Override
     public Receive<InitMessage> createReceive() {
-        return newReceiveBuilder().onMessage(createPingPong.class, this::test).build();
+        return newReceiveBuilder()
+                .onMessage(createPingPong.class, this::onStart).build();
     }
 
-    private Behavior<InitMessage> test(createPingPong command) {
-        System.out.println("Test");
+    private Behavior<InitMessage> onStart(createPingPong command) {
+        ping.tell(new Ping.Init(pong));
+        pong.tell(new Pong.Init(ping));
+        ping.tell(new Ping.Start());
         return this;
     }
 
