@@ -55,8 +55,9 @@ public class Pong extends AbstractBehavior<Pong.Message> {
         return this;
     }
 
-    private Behavior<Pong.Message> sayingPong(sayPong sayPong) {
+    private Behavior<Pong.Message> sayingPong(sayPong sayPong) throws InterruptedException {
         System.out.println("Pong\n");
+        Thread.sleep(1000);
         ping.tell(new Ping.sayPing());
         return this;
     }

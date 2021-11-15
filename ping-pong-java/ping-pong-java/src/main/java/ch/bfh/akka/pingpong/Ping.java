@@ -57,12 +57,14 @@ public class Ping extends AbstractBehavior<Ping.Message> {
     }
 
     private Behavior<Ping.Message> pingStart(Start start){
+        System.out.println("Ping\n");
         pong.tell(new Pong.sayPong());
         return this;
     }
 
-    private Behavior<Ping.Message> sayingPing(sayPing sayPing){
+    private Behavior<Ping.Message> sayingPing(sayPing sayPing) throws InterruptedException {
         System.out.println("Ping\n");
+        Thread.sleep(1000);
         pong.tell(new Pong.sayPong());
         return this;
     }
