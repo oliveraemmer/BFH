@@ -24,7 +24,6 @@ public class Pong extends AbstractBehavior<Pong.Message> {
 
     public Pong(ActorContext<Message> context) {
         super(context);
-        System.out.println("pong");
     }
 
     public static Behavior<Pong.Message> create() {
