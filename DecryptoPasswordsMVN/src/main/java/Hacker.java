@@ -31,8 +31,9 @@ public class Hacker extends AbstractBehavior<Hacker.Message> {
     private String name;
     private int hackCounter;
     LinkedList<String> passwords = new LinkedList<String>();
+    ActorRef<SystemRoot.Init> ref;
 
-    ActorRef<Hacker.Message> hacker;
+    //ActorRef<Hacker.Message> hacker;
 
     public Hacker(ActorContext<Message> context) {
         super(context);
@@ -47,6 +48,13 @@ public class Hacker extends AbstractBehavior<Hacker.Message> {
         String passwordFile;
         public ReadPasswords(String PasswordFile){
             this.passwordFile = PasswordFile;
+        }
+    }
+
+    public static class GetReference implements Hacker.Message {
+        ActorRef<SystemRoot.Init> ref;
+        public GetReference(ActorRef<SystemRoot.Init> ref) {
+            this.ref = ref;
         }
     }
 
@@ -69,6 +77,7 @@ public class Hacker extends AbstractBehavior<Hacker.Message> {
     public Receive<Hacker.Message> createReceive() {
         return newReceiveBuilder()
                 .onMessage(Hacker.ReadPasswords.class, this::onReadPasswords)
+                .onMessage(Hacker.GetReference.class, this::onGetReference)
                 .onMessage(Hacker.User.class, this::hack)
                 .build();
     }
@@ -92,8 +101,13 @@ public class Hacker extends AbstractBehavior<Hacker.Message> {
         return this;
     }
 
+    private Behavior<Hacker.Message> onGetReference(GetReference command){
+        ref = command.ref;
+        return this;
+    }
+
     private Behavior<Hacker.Message> hack(User command) {
-        System.out.println(name + " has hacked " + hackCounter + " times\n(" + command.user + ")\n\n");
+        //System.out.println(name + " has hacked " + hackCounter + " times\n(" + command.user + ")\n\n");
         hackCounter++;
 
         String[] lineSplited = command.user.split(" ");
@@ -103,18 +117,25 @@ public class Hacker extends AbstractBehavior<Hacker.Message> {
         String _user = lineSplited[0];
         String hashedPassword = lineSplited[2];
         String salt = lineSplited[1];
+        boolean found = false;
 
         for(String pwd : passwords){
             try{
                 String hashedPwd = hash("SHA-512",pwd+salt);
                 if(hashedPwd.equals(hashedPassword)){
-                    System.out.println(_user+" "+pwd);
+                    String foundPassword = _user + " " + pwd;
+                    found = true;
+                    ref.tell(new SystemRoot.FoundPasswords(foundPassword));
                 }
 
             }
             catch(NoSuchAlgorithmException e){
                 System.err.println("Algorithm SHA 512 not implmented");
                 return this;
+            }
+
+            if(found = false){
+                ref.tell(new SystemRoot.FoundPasswords("Password not found for user " + _user));
             }
 
         }

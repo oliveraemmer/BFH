@@ -26,20 +26,23 @@ import java.util.List;
 public class SystemRoot extends AbstractBehavior<SystemRoot.Init> {
 
     LinkedList<String> lines = new LinkedList<String>();
+    List<String> foundPasswords = new ArrayList<String>();
     int userCounter;
     int hackerCount = 8;
-    int terminatedCounter = 0;
+    long start;
 
     interface Init {}
 
     List<ActorRef<Hacker.Message>> hackers = new LinkedList<ActorRef<Hacker.Message>>();
+    ActorRef<SystemRoot.Init> system;
 
     public SystemRoot(ActorContext<Init> context) {
         super(context);
+        system = getContext().getSelf();
         for(int i = 0; i < 8; i++){
-            ActorRef<Hacker.Message> hacker = context.spawn(Hacker.create(), "hacker" + i);
-            getContext().watch(hacker);
-            hackers.add(hacker);
+            //ActorRef<Hacker.Message> hacker = context.spawn(Hacker.create(), "hacker" + i);
+            //getContext().watch(hacker);
+            hackers.add(context.spawn(Hacker.create(), "hacker" + i));
         }
     }
 
@@ -50,9 +53,18 @@ public class SystemRoot extends AbstractBehavior<SystemRoot.Init> {
     public static class CreateHackers implements Init{
         String userFile;
         String encryptedFile;
-        public CreateHackers(String userFile, String encryptedFile){
+        long start;
+        public CreateHackers(String userFile, String encryptedFile, long start){
             this.userFile = userFile;
             this.encryptedFile = encryptedFile;
+            this.start = start;
+        }
+    }
+
+    public static class FoundPasswords implements SystemRoot.Init{
+        String foundPassword;
+        public FoundPasswords(String foundPassword){
+            this.foundPassword = foundPassword;
         }
     }
 
@@ -60,15 +72,24 @@ public class SystemRoot extends AbstractBehavior<SystemRoot.Init> {
     public Receive<Init> createReceive() {
         return newReceiveBuilder()
                 .onMessage(CreateHackers.class, this::onCreateHackers)
-                .onSignal(Terminated.class, this::onTerminated)
+                .onMessage(FoundPasswords.class, this::onFoundPasswords)
                 .build();
     }
 
     private Behavior<Init> onCreateHackers(CreateHackers command) {
+        // timer
+        start = command.start;
+
         // every hacker reads all the encrypted entries
         for(int i = 0; i < hackerCount; i++){
             hackers.get(i).tell(new Hacker.ReadPasswords(command.encryptedFile));
         }
+
+        // every hacker receives a reference to the SystemRoot
+        for(int i = 0; i < hackerCount; i++){
+            hackers.get(i).tell(new Hacker.GetReference(system));
+        }
+
         // reading users
         try(BufferedReader br = new BufferedReader(new FileReader(command.userFile))) {
             String line = br.readLine();
@@ -90,17 +111,24 @@ public class SystemRoot extends AbstractBehavior<SystemRoot.Init> {
             return this;
         }
         // Start hacking
-        for(int i = 1; i < userCounter; i++){
+        for(int i = 0; i < userCounter; i++){
+            String hackerName = getContext().getChild("hacker" + i%hackerCount).get().path().name();
+            System.out.println(hackerName + " received line Nr. " + (i+1) + " (" + lines.get(i) + ")");
             hackers.get(i % hackerCount).tell(new Hacker.User(lines.get(i)));
         }
 
         return this;
     }
 
-    private Behavior<Init> onTerminated(Terminated command) {
-        terminatedCounter++;
-        if(terminatedCounter >= userCounter){
-            getContext().getSystem().terminate();
+    private Behavior<Init> onFoundPasswords(FoundPasswords command) {
+        foundPasswords.add(command.foundPassword);
+        System.out.println("Password Nr. " + foundPasswords.size() + " received: " + command.foundPassword);
+        if(foundPasswords.size() >= userCounter){
+            long finish = System.currentTimeMillis();
+            long timeElapsed = finish - start;
+            long seconds = timeElapsed /1000;
+            long millis = timeElapsed % 1000;
+            System.err.println("Process duration = "+seconds+","+millis+"s");
         }
         return this;
     }
