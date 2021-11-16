@@ -68,13 +68,13 @@ public class Hacker extends AbstractBehavior<Hacker.Message> {
     @Override
     public Receive<Hacker.Message> createReceive() {
         return newReceiveBuilder()
-                .onMessage(Hacker.ReadPasswords.class, this::read)
+                .onMessage(Hacker.ReadPasswords.class, this::onReadPasswords)
                 .onMessage(Hacker.User.class, this::hack)
                 .build();
     }
 
-    private Behavior<Hacker.Message> read(ReadPasswords PasswordFile){
-        try(BufferedReader br = new BufferedReader(new FileReader(PasswordFile.passwordFile))) {
+    private Behavior<Hacker.Message> onReadPasswords(ReadPasswords command){
+        try(BufferedReader br = new BufferedReader(new FileReader(command.passwordFile))) {
             String pwd1 = br.readLine();
             while (pwd1 != null) {
                 passwords.addLast(pwd1);
@@ -82,23 +82,23 @@ public class Hacker extends AbstractBehavior<Hacker.Message> {
             }
         }
         catch(FileNotFoundException e1){
-            System.err.println("File "+PasswordFile.passwordFile+" not found");
+            System.err.println("File "+command.passwordFile+" not found");
             return this;
         }
         catch(IOException e2){
-            System.err.println("Problem reading the file "+PasswordFile.passwordFile);
+            System.err.println("Problem reading the file "+command.passwordFile);
             return this;
         }
         return this;
     }
 
-    private Behavior<Hacker.Message> hack(User user) {
-        System.out.println(name + " has hacked " + hackCounter + " times\n(" + user.user + ")\n\n");
+    private Behavior<Hacker.Message> hack(User command) {
+        System.out.println(name + " has hacked " + hackCounter + " times\n(" + command.user + ")\n\n");
         hackCounter++;
 
-        String[] lineSplited = user.user.split(" ");
+        String[] lineSplited = command.user.split(" ");
         if(lineSplited.length!=3){
-            System.err.println("Malformed line"+user.user);
+            System.err.println("Malformed line"+command.user);
         }
         String _user = lineSplited[0];
         String hashedPassword = lineSplited[2];

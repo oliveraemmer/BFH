@@ -27,23 +27,10 @@ public class SystemRoot extends AbstractBehavior<SystemRoot.Init> {
 
     LinkedList<String> lines = new LinkedList<String>();
     int userCounter;
-    int hackerNumber = 8;
+    int hackerCount = 8;
     int terminatedCounter = 0;
 
     interface Init {}
-
-    public static class createHackers implements Init{
-        String userFile;
-        String encryptedFile;
-        public createHackers(String userFile, String encryptedFile){
-            this.userFile = userFile;
-            this.encryptedFile = encryptedFile;
-        }
-    }
-
-    public static Behavior<Init> create() {
-        return Behaviors.setup(SystemRoot::new);
-    }
 
     List<ActorRef<Hacker.Message>> hackers = new LinkedList<ActorRef<Hacker.Message>>();
 
@@ -56,17 +43,30 @@ public class SystemRoot extends AbstractBehavior<SystemRoot.Init> {
         }
     }
 
+    public static Behavior<Init> create() {
+        return Behaviors.setup(SystemRoot::new);
+    }
+
+    public static class CreateHackers implements Init{
+        String userFile;
+        String encryptedFile;
+        public CreateHackers(String userFile, String encryptedFile){
+            this.userFile = userFile;
+            this.encryptedFile = encryptedFile;
+        }
+    }
+
     @Override
     public Receive<Init> createReceive() {
         return newReceiveBuilder()
-                .onMessage(createHackers.class, this::startingHackers)
+                .onMessage(CreateHackers.class, this::onCreateHackers)
                 .onSignal(Terminated.class, this::onTerminated)
                 .build();
     }
 
-    private Behavior<Init> startingHackers(createHackers command) {
+    private Behavior<Init> onCreateHackers(CreateHackers command) {
         // every hacker reads all the encrypted entries
-        for(int i = 0; i < hackerNumber; i++){
+        for(int i = 0; i < hackerCount; i++){
             hackers.get(i).tell(new Hacker.ReadPasswords(command.encryptedFile));
         }
         // reading users
@@ -91,7 +91,7 @@ public class SystemRoot extends AbstractBehavior<SystemRoot.Init> {
         }
         // Start hacking
         for(int i = 1; i < userCounter; i++){
-            hackers.get(i%hackerNumber).tell(new Hacker.User(lines.get(i)));
+            hackers.get(i % hackerCount).tell(new Hacker.User(lines.get(i)));
         }
 
         return this;

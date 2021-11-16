@@ -32,7 +32,7 @@ public class DecryptPasswords{
 			System.err.println("Program requires two file names as argument (hashed passwords and possible passwords)");
 			return;
 		}
-		system.tell(new SystemRoot.createHackers(args[0], args[1]));
+		system.tell(new SystemRoot.CreateHackers(args[0], args[1]));
 
 		long finish = System.currentTimeMillis();
 		long timeElapsed = finish - start;
