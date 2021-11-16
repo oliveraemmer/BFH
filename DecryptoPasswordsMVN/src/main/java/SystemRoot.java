@@ -110,10 +110,11 @@ public class SystemRoot extends AbstractBehavior<SystemRoot.Init> {
             System.err.println("Problem reading the file "+command.userFile);
             return this;
         }
+
         // Start hacking
         for(int i = 0; i < userCounter; i++){
             String hackerName = getContext().getChild("hacker" + i%hackerCount).get().path().name();
-            System.out.println(hackerName + " received line Nr. " + (i+1) + " (" + lines.get(i) + ")");
+            System.out.println(hackerName + " receives line Nr. " + (i+1) + " (" + lines.get(i) + ")");
             hackers.get(i % hackerCount).tell(new Hacker.User(lines.get(i)));
         }
 
