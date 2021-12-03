@@ -16,7 +16,6 @@ public class RSA {
     }
 
     private static int calculatePrivateKeyExp(int p1q1, int e_1) {
-        System.out.println("p1q1 = " + p1q1 + " e_1 = " + e_1);
         // Start for loop at (p1q1 / e_1) because anything smaller won't be the result anyway since mod p1q1 is applied
         for (int x = (p1q1 / e_1); x < p1q1; x++) {
             if (((e_1 * x) % p1q1) == 1) {
