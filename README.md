@@ -1,4 +1,4 @@
-# BFH
+# Repository info
 
 This repository contains some exercises from [BFH](bfh.ch)
 
