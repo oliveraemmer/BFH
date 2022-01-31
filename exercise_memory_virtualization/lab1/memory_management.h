@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <math.h>
 
 int memory_init_data(int number_processes,
 		     int free_frames_number,

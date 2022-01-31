@@ -8,6 +8,7 @@
 
 bool *freeFrames;
 uintptr_t *frames;
+uint64_t framesNum;
 uintptr_t *pageTable;
 uintptr_t frameToAdd;
 int offsetLen;
@@ -26,11 +27,12 @@ int memory_init_data(int number_processes,
 		     int tlb_size)                
 {
 	// initialize physical frame list
+	framesNum = free_frames_number;
 	freeFrames = (bool *)calloc(free_frames_number + 1, sizeof(bool));
-	for(int i = 0; i < 9; i++){
+	for(int i = 0; i < free_frames_number; i++){
 		freeFrames[i] = true;
 	}
-	freeFrames[9] == 0;
+	freeFrames[framesNum] == 0;
 
 	// initialize page table
 	VPNLen = length_VPN_in_bits;
@@ -46,8 +48,8 @@ int memory_init_data(int number_processes,
 
 	// initialize the actual physical memory
 	int numberOfFrames = (int) pow(2, length_PFN_in_bits);
-	frames = (uintptr_t *)calloc(numberOfFrames*offsetMask + 2, sizeof(uintptr_t));
-	frames[free_frames_number] = 0;
+	frames = (uintptr_t *)calloc(numberOfFrames*offsetMask, sizeof(uintptr_t));
+	frames[numberOfFrames] = 0;
 
 	// initialize TLB
 	TLBMaxSize = tlb_size * 2;
@@ -68,13 +70,11 @@ int write_TLB(uint64_t VPN, uintptr_t pageTableEntry){
 	// Write into TLB
 	TLB[TLBWrite] = pageTableEntry_shifted;
 	TLB[TLBWrite+1] = VPN;
-	if(TLBWrite < 9){
+	if(TLBWrite < (TLBMaxSize-1)){
 		TLBWrite += 2;
 	} else {
 		TLBWrite = 0;
 	}
-	
-	printf("TLB: %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR "\n", TLB[0], TLB[1], TLB[2], TLB[3], TLB[4], TLB[5], TLB[6], TLB[7], TLB[8], TLB[9]);
 	return 0;
 }
 
@@ -82,7 +82,6 @@ uintptr_t check_TLB(uint64_t VPN){
 	for(int i = 1; i < TLBMaxSize; i+=2){
 		if(TLB[i] != 0){
 			if(TLB[i] == VPN){
-				printf("TLB: %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR ", %" PRIxPTR "\n", TLB[0], TLB[1], TLB[2], TLB[3], TLB[4], TLB[5], TLB[6], TLB[7], TLB[8], TLB[9]);
 				return TLB[i-1];
 			}
 		}
@@ -109,8 +108,6 @@ int get_physical_address(uint64_t virtual_address,
 	uint64_t vOffset = virtual_address & offsetMask;
 	uint64_t virtual_address_shifted = virtual_address >> offsetLen;
 	uint64_t VPN = virtual_address >> offsetLen & VPNMask;
-	
-	printf("\nvirtual_address = %" PRIx64 " -> VPN = %" PRIx64 " vOffset = %" PRIx64 "\n", virtual_address, VPN, vOffset);
 
 	// check if Entry in TLB
 	*tlb_hit = 0;
@@ -118,7 +115,6 @@ int get_physical_address(uint64_t virtual_address,
 	if(TLBCheck != 0){
 		*tlb_hit = 1;
 		*physical_address = TLBCheck;
-		printf("TLB hit\n");
 	} else {
 		*tlb_hit = 0;
 
@@ -128,12 +124,11 @@ int get_physical_address(uint64_t virtual_address,
 		// if pageState is 0 then the page isn't used yet
 		if(pageState == 0 && *tlb_hit != 1){
 			// check for freeFrames
-			for(int i = 0; i < 9; i++){
+			for(int i = 0; i < framesNum; i++){
 				if(freeFrames[i] == true){
 					// if a free frame is found, set to false 				
 					freeFrameFound = true;
 					freeFrames[i] = false;
-					printf("Frame %d is now in use\n", i);
 					// remove offset from address and add frame to pageTable
 					frameToAdd = (uintptr_t) &frames[i*offsetMask+1];
 					frameToAdd >> offsetLen;
@@ -144,7 +139,6 @@ int get_physical_address(uint64_t virtual_address,
 					write_TLB(VPN, pageTable[VPN]);
 					break;
 				}
-				printf("freeFrames[%d] = %d (used)\n", i, freeFrames[i]);
 			}
 		} else {
 			// if pageState is 1 then the page is in use and can be added to the TLB
@@ -156,7 +150,6 @@ int get_physical_address(uint64_t virtual_address,
 	}
 	
 	*physical_address = (uint64_t) pageTable[VPN] | vOffset;
-	printf("physical_address = %" PRIx64 "\n\n", *physical_address);
 
 	return 0;
 }
