@@ -4,7 +4,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ch.bfh</groupId>
-	<artifactId>oware-GR-4-JAVA-Be-01</artifactId>
+	<artifactId>exercise_oware</artifactId>
 	<version>1.0</version>
 
 	<properties>
@@ -43,7 +43,7 @@
 
 	<build>
 		<pluginManagement>
-			<!-- Use 'mvn versions:display-plugin-updates' to check if newer plugins 
+			<!-- Use 'mvn versions:display-plugin-updates' to check if newer plugins
 				are available -->
 			<plugins>
 				<plugin>
@@ -125,8 +125,8 @@
 		</plugins>
 	</build>
 
-	<!-- <profiles> <profile> <id>javafx</id> <build> <plugins> <plugin> <groupId>org.openjfx</groupId> 
-		<artifactId>javafx-maven-plugin</artifactId> <version>0.0.4</version> <configuration> 
-		<mainClass>${mainClass}</mainClass> <includePathExceptionsInClasspath>true</includePathExceptionsInClasspath> 
+	<!-- <profiles> <profile> <id>javafx</id> <build> <plugins> <plugin> <groupId>org.openjfx</groupId>
+		<artifactId>javafx-maven-plugin</artifactId> <version>0.0.4</version> <configuration>
+		<mainClass>${mainClass}</mainClass> <includePathExceptionsInClasspath>true</includePathExceptionsInClasspath>
 		</configuration> </plugin> </plugins> </build> </profile> </profiles> -->
 </project>
