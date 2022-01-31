@@ -14,8 +14,8 @@ public class DataAdmin {
 
     private DataAdmin() {}
 
-    public Entry addEntry(int id, String title, String summary, String imageUrl){
-        Entry e = new Entry(id, title, summary, imageUrl);
+    public Entry addEntry(int id, String title, String summary, String imageUrl, String link){
+        Entry e = new Entry(id, title, summary, imageUrl, link);
         entries.add(e);
         return e;
     }

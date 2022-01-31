@@ -26,6 +26,11 @@
                   </Button>
                   <Button fx:id="reports" mnemonicParsing="false" onAction="#showContent" text="Reports">
                      <HBox.margin>
+                        <Insets bottom="30.0" left="30.0" right="70.0" top="30.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="refresh" mnemonicParsing="false" onAction="#showContent" text="Refresh">
+                     <HBox.margin>
                         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                      </HBox.margin>
                   </Button>

@@ -5,14 +5,16 @@ public class Entry {
     private String title;
     private String summary;
     private String imageUrl;
+    private String link;
 
     public Entry(){}
 
-    public Entry (int id, String title, String summary, String imageUrl){
+    public Entry (int id, String title, String summary, String imageUrl, String link){
         this.id = id;
         this.title = title;
         this.summary = summary;
         this.imageUrl = imageUrl;
+        this.link = link;
     }
 
     public int getId() {
@@ -29,5 +31,9 @@ public class Entry {
 
     public String getImageUrl() {
         return imageUrl;
+    }
+
+    public String getLink() {
+        return link;
     }
 }
