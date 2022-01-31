@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"ch.bfh.oware.model","l":"Board"},{"p":"ch.bfh.oware.model","l":"Bot"},{"p":"ch.bfh.oware","l":"ConsoleApp"},{"p":"ch.bfh.oware.model","l":"MyBoardClass"},{"p":"ch.bfh.oware.model","l":"Pit"},{"p":"ch.bfh.oware.model","l":"Player"},{"p":"ch.bfh.oware.model","l":"Players"}];updateSearchResults();
