@@ -1,0 +1,3 @@
+/*
+ * Academia (c) 2021, Bern University of Applied Sciences, Switzerland
+ */

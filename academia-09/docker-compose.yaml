@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: academia
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    networks:
+      - academia-net
+    
+  web:
+    build: src/main/webapp/_src
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    networks:
+      - academia-net
+
+  # api:
+  #   build: src/main/java
+  #   depends_on:
+  #     - db
+  #   ports:
+  #     - "8080:8080"
+  #   networks:
+  #     - academia-net
+
+networks:
+  academia-net:
+    driver: bridge
+

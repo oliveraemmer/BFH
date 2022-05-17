@@ -1,0 +1,15 @@
+@startuml
+
+participant WebServer
+participant FilterChain
+participant AuthenticationFilter
+participant MediaTypeFilter
+participant LoggingFilter
+
+WebServer -> FilterChain : new FilterChain()
+FilterChain --> WebServer : FilterChain
+WebServer -> AuthenticationFilter : doFilter(request, response, chain)
+AuthenticationFilter -> MediaTypeFilter : doFilter(request, response, chain)
+MediaTypeFilter -> LoggingFilter : doFilter(request, response, chain)
+
+@enduml

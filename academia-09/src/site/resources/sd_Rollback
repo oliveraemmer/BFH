@@ -1,0 +1,18 @@
+@startuml
+
+actor User
+participant Student_ModuleCard
+participant WebServer
+participant Response
+participant EnrollmentController
+participant ConnectionManager
+participant Connection
+
+EnrollmentController -> ConnectionManager : rollback(connection)
+ConnectionManager -> Connection : rollback()
+EnrollmentController -> Response : setStatus()
+EnrollmentController -> WebServer : return
+WebServer -> Student_ModuleCard : response
+Student_ModuleCard -> User : Error
+
+@enduml

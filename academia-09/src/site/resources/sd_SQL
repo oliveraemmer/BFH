@@ -1,0 +1,14 @@
+@startuml
+
+participant EnrollmentRepository
+participant Connection
+participant PreparedStatement
+
+EnrollmentRepository -> Connection : prepareStatement()
+Connection --> EnrollmentRepository : PreparedStatement
+EnrollmentRepository -> PreparedStatement : setInt()
+EnrollmentRepository -> PreparedStatement : setString()
+EnrollmentRepository -> PreparedStatement : executeQuery()
+PreparedStatement --> EnrollmentRepository : result
+
+@enduml

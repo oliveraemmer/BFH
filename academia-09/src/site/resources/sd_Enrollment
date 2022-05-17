@@ -1,0 +1,129 @@
+@startuml
+
+actor User
+participant ModuleCard
+participant WebServer
+participant Filters
+participant ObjectMapper
+participant Request
+participant Response
+participant EnrollmentController
+participant ConnectionManager
+participant EnrollmentRepository
+participant Connection
+participant PreparedStatement
+participant Enrollment
+
+User -> ModuleCard : Enroll
+ModuleCard ->> WebServer : POST /enrollments/{mrid}-{pid}
+WebServer -> Request : new HttpServletRequest()
+Request --> WebServer : HttpServletRequest
+WebServer -> Response : new HttpServletResponse()
+Response --> WebServer : HttpServletResponse
+ref over WebServer, Filters
+    sd_Filters
+end ref
+Filters -> EnrollmentController : doPut(request, response)
+EnrollmentController -> ConnectionManager : getConnection()
+ConnectionManager --> EnrollmentController : connection
+EnrollmentController -> EnrollmentRepository : new EnrollmentRepository(connection)
+EnrollmentRepository --> EnrollmentController : repository
+EnrollmentController -> Request : getAttribute("role")
+Request --> EnrollmentController : role
+
+alt pathInfo == null || pathInfo.equals("/")
+    ref over EnrollmentController, ConnectionManager, Connection, Response, WebServer, User
+    sd_Rollback
+    end ref
+else !role.equals("student")
+    ref over EnrollmentController, ConnectionManager, Connection, Response, WebServer, User
+    sd_Rollback
+    end ref
+else pid != pathPid
+    ref over EnrollmentController, ConnectionManager, Connection, Response, WebServer, User
+    sd_Rollback
+    end ref
+end
+
+EnrollmentController -> EnrollmentRepository : checkModulerun(pathMrid)
+
+ref over EnrollmentRepository, Connection, PreparedStatement
+sd_SQL
+end ref
+
+EnrollmentRepository --> EnrollmentController : result
+
+opt result = false
+    ref over EnrollmentController, ConnectionManager, Connection, Response, WebServer, User
+    sd_Rollback
+    end ref
+end
+
+EnrollmentController -> EnrollmentRepository : isStudentEnrolled(pathPid, pathMrid)
+
+ref over EnrollmentRepository, Connection, PreparedStatement
+sd_SQL
+end ref
+
+EnrollmentRepository --> EnrollmentController : result
+
+opt result = false
+    ref over EnrollmentController, ConnectionManager, Connection, Response, WebServer, User
+    sd_Rollback
+    end ref
+end
+
+EnrollmentController -> EnrollmentRepository : enroll(pathPid, pathMrid)
+
+ref over EnrollmentRepository, Connection, PreparedStatement
+sd_SQL
+end ref
+
+EnrollmentRepository --> EnrollmentController : result
+
+alt result = true
+    EnrollmentController -> Response : setStatus(SC_CREATED)
+else result = false
+    EnrollmentController -> Response : setStatus(SC_CONFLICT)
+end
+
+    EnrollmentController -> ConnectionManager : commit(connection)
+    ConnectionManager -> Connection : commit()
+    EnrollmentController -> EnrollmentRepository : getEnrollment(pathPid, pathMrid)
+
+    ref over EnrollmentRepository, Connection, PreparedStatement
+    sd_SQL
+    end ref
+
+    EnrollmentRepository -> Enrollment : new Enrollment()
+    Enrollment --> EnrollmentRepository : enrollment
+    EnrollmentRepository -> Enrollment : setPid(results.getInt("pid")
+    EnrollmentRepository -> Enrollment : setGrade(results.getString("grade")
+    EnrollmentRepository -> Enrollment : setFirstname(results.getString("firstname")
+    EnrollmentRepository -> Enrollment : setLastname(results.getString("lastname")
+    EnrollmentRepository --> EnrollmentController : enrollment
+    EnrollmentRepository -> Response : setHeader(CONTENT_TYPE_HEADER, JSON_MEDIA_TYPE)
+    EnrollmentController -> ObjectMapper : writeValue(response.getOutputStream(), responseEnrollment);
+
+opt NumberFormatException, JsonParseException
+    ref over EnrollmentController, ConnectionManager, Connection, Response, WebServer, User
+    sd_Rollback
+    end ref
+end
+
+opt SQLException
+    ref over EnrollmentController, ConnectionManager, Connection, Response, WebServer, User
+    sd_Rollback
+    end ref
+end
+
+EnrollmentController -> ConnectionManager : close(connection)
+ConnectionManager -> Connection : close()
+EnrollmentController -> WebServer : return
+WebServer -> ModuleCard : Response
+
+opt Response.status = 201
+    ModuleCard -> User : Success
+end
+
+@enduml

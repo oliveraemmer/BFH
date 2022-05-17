@@ -1,0 +1,43 @@
+{
+  "name": "webapp",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.8.1",
+    "@emotion/styled": "^11.8.1",
+    "@material-ui/core": "^4.12.3",
+    "@mui/icons-material": "^5.5.0",
+    "@mui/material": "^5.5.0",
+    "axios": "^0.26.1",
+    "image-trace-loader": "^1.0.2",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^10.0.1",
+    "jimp": "^0.16.1",
+    "js-cookie": "^3.0.1",
+    "lqip-loader": "^2.2.1",
+    "next": "12.1.0",
+    "next-compose-plugins": "^2.2.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "responsive-loader": "^2.3.0",
+    "styled-components": "^5.3.3",
+    "svg-sprite-loader": "^6.0.11",
+    "sweetalert2": "^11.4.7",
+    "swr": "^1.2.2",
+    "webp-loader": "^0.6.0"
+  },
+  "devDependencies": {
+    "@mui/lab": "^5.0.0-alpha.74",
+    "eslint": "8.10.0",
+    "eslint-config-next": "12.1.0"
+  }
+}

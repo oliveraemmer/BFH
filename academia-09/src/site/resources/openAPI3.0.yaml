@@ -1,0 +1,579 @@
+openapi: 3.0.0
+info:
+  version: '1.0.0'
+  title: 'academia-09'
+  license:
+    name: MIT
+servers:
+  - url: 'localhost:8080'
+paths:
+  /api/auth:
+    get:
+      summary: Get infos if a user is logged in
+      operationId: checkUser
+      security:
+        - bearerAuth: []
+      tags:
+        - userManagement
+      responses:
+        '200':
+          description: Returns authenticated user infos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '406':
+          description: Not Acceptable
+        '500':
+          description: Internal Server Error
+
+    post:
+      summary: Authenticate a user, get a bearer token
+      operationId: login
+      tags:
+        - userManagement
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+      responses:
+        '200':
+          description: Successfully logged in, returns JWT
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '400':
+          description: Bad Request
+        '401':
+          description: "Unauthorized: wrong username or password"
+        '406':
+          description: Not Acceptable
+        '500':
+          description: Internal Server Error
+
+  /api/persons/{pid}:
+    get:
+      summary: Returns a person by ID.
+      operationId: listUser
+      security:
+        - bearerAuth: []
+      tags:
+        - userManagement
+      parameters:
+        - name: pid
+          in: path
+          description: ID of the user
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+      responses:
+        '200':
+          description: Returns person details by ID
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden to show information about a person
+        '404':
+          description: Person Not Found
+        '406':
+          description: Not Acceptable
+        '500':
+          description: Internal Server Error
+
+  /api/modules:
+    get:
+      summary: Returns a list of modules.
+      operationId: listModules
+      security:
+        - bearerAuth: []
+      tags:
+        - moduleManagement
+      responses:
+        '200':
+          description: A JSON object array of modules and their property
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Module'
+        '401':
+          description: Unauthorized
+        '406':
+          description: Not Acceptable
+        '500':
+          description: Internal Server Error
+
+  /api/modules/{mid}:
+    get:
+      summary: Returns a specific module by ID.
+      operationId: listModule
+      security:
+        - bearerAuth: []
+      tags:
+        - moduleManagement
+      parameters:
+        - name: mid
+          in: path
+          description: ID of the module
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A JSON object of a single module with its properties
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SingleModule'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Module Not Found
+        '406':
+          description: Not Acceptable
+        '500':
+          description: Internal Server Error
+
+    put:
+      summary: Updates the description of a specific module by ID.
+      operationId: updateModule
+      security:
+        - bearerAuth: []
+      tags:
+        - moduleManagement
+      parameters:
+        - name: mid
+          in: path
+          description: ID of the module
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModuleDTO'
+      responses:
+        '200':
+          description: Module updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SingleModule'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden, user is not coordinator of module
+        '404':
+          description: Module Not Found
+        '406':
+          description: Not Acceptable
+        '409':
+          description: Conflict at Updating the Module
+        '415':
+          description: Unsupported Media Type
+        '500':
+          description: Internal Server Error
+
+  /api/moduleruns:
+    get:
+      summary: Returns a list of moduleruns. For teachers only the ones they teaches, but additionally with all subscribed students.
+      operationId: listModuleruns
+      security:
+        - bearerAuth: []
+      tags:
+        - modulerunManagement
+      responses:
+        '200':
+          description: A JSON object array of moduleruns and their properties
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Modulerun'
+        '401':
+          description: Unauthorized
+        '406':
+          description: Not Acceptable
+        '500':
+          description: Internal Server Error
+
+  /api/moduleruns/{mrid}:
+    get:
+      summary: Returns a specific modulerun by ID.
+      operationId: listModulerun
+      security:
+        - bearerAuth: []
+      tags:
+        - modulerunManagement
+      parameters:
+        - name: mrid
+          in: path
+          description: ID of the modulerun
+          required: true
+          schema:
+            type: integer
+            format: int32
+            minimum: 1
+      responses:
+        '200':
+          description: A JSON object of a single module with its properties
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Modulerun'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Modulerun Not Found
+        '406':
+          description: Not Acceptable
+        '500':
+          description: Internal Server Error
+
+  /api/enrollments/{eid}:
+    get:
+      summary: Returns a specific enrollment by ID.
+      operationId: getEnrollment
+      security:
+        - bearerAuth: []
+      tags:
+        - enrollmentManagement
+      parameters:
+        - name: eid
+          in: path
+          description: ID of the enrollment
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A JSON object of a single enrollment with its properties
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enrollment'
+        '400':
+          description: Bad Request (also if a student get infos for an enrollment of another student)
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden (e.g. if teacher doesn't teach modulerun)
+        '404':
+          description: Enrollment Not Found
+        '406':
+          description: Not Acceptable
+        '500':
+          description: Internal Server Error
+
+    put:
+      summary: Updates the grade of a student in a modulerun
+      operationId: updateGrade
+      security:
+        - bearerAuth: []
+      tags:
+        - enrollmentManagement
+      parameters:
+        - name: eid
+          in: path
+          description: ID of the enrollment
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Grade'
+      responses:
+        '200':
+          description: Grade updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enrollment'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden, user is not a teacher of the modulerun
+        '404':
+          description: Modulerun for person Not Found
+        '406':
+          description: Not Acceptable
+        '409':
+          description: Conflict at Updating the Enrollment
+        '415':
+          description: Unsupported Media Type
+        '500':
+          description: Internal Server Error
+
+    post:
+      summary: Enrolls a student in a specific modulerun
+      operationId: enrollStudent
+      security:
+        - bearerAuth: []
+      tags:
+        - enrollmentManagement
+      parameters:
+        - name: eid
+          in: path
+          description: ID of the enrollment
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Student enrolled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Enrollment'
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden, user is not a student
+        '404':
+          description: Modulerun Not Found
+        '406':
+          description: Not Acceptable
+        '409':
+          description: Student is already enrolled for module or Conflict at creation of enrollment
+        '415':
+          description: Unsupported Media Type
+        '500':
+          description: Internal Server Error
+        
+    delete:
+      summary: Unenroll a student in a specific modulerun
+      operationId: unenrollStudent
+      security:
+        - bearerAuth: []
+      tags:
+        - enrollmentManagement
+      parameters:
+        - name: eid
+          in: path
+          description: ID of the enrollment
+          required: true
+          schema:
+            type: string
+      responses:
+        '201':
+          description: Student derolled
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden, user is not a student
+        '404':
+          description: Student is not enrolled in modulerun
+        '405':
+          description: Cannot unenroll student (e.g. if Grade is already set)
+        '406':
+          description: Not Acceptable
+        '409':
+          description: Conflict at deletion of enrollment
+        '415':
+          description: Unsupported Media Type
+        '500':
+          description: Internal Server Error
+
+components:
+  schemas:
+    Login:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+
+    AuthResponse:
+      type: object
+      properties:
+        pid:
+          type: integer
+          format: int32
+        role:
+          type: string
+
+    LoginResponse:
+      type: string
+
+    Person:
+      type: object
+      properties:
+        pid:
+          type: integer
+          format: int32
+        firstname:
+          type: string
+        lastname:
+          type: string
+        address:
+          type: string
+        sex:
+          type: string
+        birthdate:
+          type: string
+        role:
+          type: string
+        username:
+          type: string
+
+    SingleModule:
+      type: object
+      properties:
+        mid:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        coordinator:
+          type: object
+          properties:
+            pid:
+              type: integer
+              format: int32
+            firstname:
+              type: string
+            lastname:
+              type: string
+
+    Module:
+      type: object
+      required:
+        - mid
+        - name
+        - description
+      properties:
+        mid:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        coordinator:
+          type: object
+          properties:
+            pid:
+              type: integer
+              format: int32
+            firstname:
+              type: string
+            lastname:
+              type: string
+
+    ModuleDTO:
+      type: object
+      required:
+        - mid
+        - description
+      properties:
+        mid:
+          type: string
+        description:
+          type: string
+
+    Modulerun:
+      type: object
+      properties:
+        mrid:
+          type: integer
+          format: int32
+        mid:
+          type: string
+        year:
+          type: integer
+          format: int32
+        semester:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        teachers:
+          type: array
+          items:
+            type: object
+            properties:
+              pid:
+                type: integer
+                format: int32
+              firstname:
+                type: string
+              lastname:
+                type: string
+        enrolled:
+          type: boolean
+        grade:
+          type: string
+        enrollments:
+          type: array
+          items:
+            type: object
+            properties:
+              pid:
+                type: integer
+                format: int32
+              firstname:
+                type: string
+              lastname:
+                type: string
+              grade:
+                type: string
+
+    Grade:
+      type: object
+      required:
+        - grade
+      properties:
+        grade:
+          type: string
+
+    Enrollment:
+      type: object
+      properties:
+        pid:
+          type: integer
+          format: int32
+        firstname:
+          type: string
+        lastname:
+          type: string
+        grade:
+          type: string
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
